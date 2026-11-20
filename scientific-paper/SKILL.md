@@ -1,6 +1,6 @@
 ---
 name: scientific-paper
-description: Helps write a scientific article from the author's own materials (idea, data, results, figures, notes) into a manuscript in the template of the target journal (LaTeX or Word), in stages and with every claim, number and reference checked. Use it whenever the developer or a colleague asks to write, draft, restructure, review, shorten or prepare for submission a scientific paper, an abstract, a section (introduction, methods, results, discussion), a cover letter or a reply to reviewers, and when results of MonitorEO go into an article, even if they only say "ayúdame con el artículo" or "escribe la discusión" and never mention references or templates.
+description: Helps write a scientific article in ecology (and related fields: conservation, biogeography, environmental science, remote sensing of ecosystems) from the author's own materials (idea, field or remote-sensing data, results, figures, notes) into a manuscript in the template of the target journal (LaTeX or Word), in stages and with every claim, number and reference checked. Use it whenever the author asks to write, draft, restructure, review, shorten or prepare for submission a scientific paper, an abstract, a section (introduction, methods, results, discussion), a cover letter or a reply to reviewers, even if they only say "help me with the paper" or "write the discussion" and never mention references or templates.
 ---
 
 # Writing a scientific paper
@@ -102,9 +102,10 @@ is not trivial:
 
 ### 6. Template and submission
 
-Put the text in the journal's template without changing the content (`references/latex.md`), compile it, and fix the
+Find the journal's template (`references/templates.md`), put the text in it without changing the content
+(`references/latex.md`), compile it, and fix the
 warnings that matter (undefined references, overfull boxes in figures). Prepare what the journal asks beside the
-manuscript: cover letter, highlights, data and code availability, author contributions, funding, conflict of interest,
+manuscript: cover letter, highlights, data and code availability (data archived in a repository, `references/ecology.md`), author contributions, funding, conflict of interest,
 suggested reviewers (the author's choice), the statement on the use of AI tools. Finish with `scripts/checklist.md`
 filled in. The author submits.
 
@@ -125,7 +126,8 @@ paper/
   figures/  tables/   with the scripts that make them
 ```
 
-## When the results come from MonitorEO
+## Ecology and the journals
 
-Read `references/monitoreo.md` (optional page): how to cite MonitorEO, Google Earth Engine and each variable and dataset, the credit
-lines, the units, and how to take the numbers and methods from the files that the tools write.
+Read `references/ecology.md` before stage 1 and again at stages 3 and 5: the design, statistics, data, ethics and
+reporting that ecology journals and reviewers look at. Read `references/templates.md` at stage 6 to find the template
+and the instructions of the journal (publisher pages and where to download the LaTeX or Word files).

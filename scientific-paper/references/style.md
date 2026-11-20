@@ -7,10 +7,12 @@
 - **Precise verbs for the evidence**: *shows* and *demonstrates* for what the data prove; *suggests*, *is consistent
   with* for what they allow; *may* for hypotheses. Do not use *significant* without a test; say the test and the p-value
   or the interval.
+- **Species names**: scientific names in italics, genus abbreviated after first use (*Quercus ilex*, then *Q. ilex*), with
+  the common name at first mention if the audience needs it.
 - **Numbers**: units in SI with a space (`12 °C`, `350 m`); the same decimals in a column; uncertainty (± what: SD, SE,
   95% CI) always said; percentages with their base; do not report more digits than the data have. Compare with
   differences or ratios, not with adjectives.
-- **Terms** defined at first use and kept (do not alternate *NDVI*, *greenness* and *vegetation index* for the same
+- **Terms** defined at first use and kept (do not alternate *biomass*, *standing crop* and *productivity* for the same
   thing). Abbreviations defined once in the abstract and once in the body, and few.
 - **Tense**: past for what was done and found, present for what the paper is and for established facts.
 - **Do not overclaim**: *novel*, *first*, *robust*, *clearly* need evidence the reader can see.

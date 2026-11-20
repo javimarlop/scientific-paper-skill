@@ -1,6 +1,6 @@
 # Template, LaTeX and Word
 
-- Use the **journal's own template** (class file or Word template) and its reference style file. Do not change margins,
+- Use the **journal's own template** (class file or Word template) and its reference style file (where to find them: `templates.md`). Do not change margins,
   fonts or spacing to fit the length: cut the text.
 - Keep the content in separate files when the template allows (`sections/intro.tex`, ...), and the bibliography in
   `refs.bib` with the DOI in every entry (`doi = {...}`). Keys: `author2026word`.

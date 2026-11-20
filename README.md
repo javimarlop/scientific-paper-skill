@@ -1,7 +1,9 @@
 # scientific-paper
 
-A skill for [Claude Code](https://claude.com/claude-code) that helps write a scientific article **from the author's
-own materials** (idea, data, results, figures, notes), in stages and with every claim, number and reference checked.
+A skill for [Claude Code](https://claude.com/claude-code) that helps write a scientific article in **ecology** (and
+related fields: conservation, biogeography, environmental science, remote sensing of ecosystems) **from the author's
+own materials** (idea, field or remote-sensing data, results, figures, notes), in stages and with every claim, number
+and reference checked.
 
 The author knows the science; the skill organises, drafts and checks. Its rules:
 
@@ -16,6 +18,11 @@ The author knows the science; the skill organises, drafts and checks. Its rules:
 0. Intake (question, contribution, target journal, materials) → 1. Outline of the argument → 2. Literature, verified →
 3. Draft section by section → 4. Figures and tables, from the author's scripts → 5. Consistency pass (`REVIEW.md`) →
 6. Journal template and submission checklist. Also: replies to reviewers.
+
+It carries what ecology reviewers look at (pseudoreplication, scale, sampling, spatial autocorrelation, effect sizes,
+model validation, taxonomy, data and code archiving, permits, sensitive locations, PRISMA for reviews) and where to
+find the **LaTeX and Word templates** of the main publishers and societies (Elsevier, Springer Nature, Wiley with BES
+and ESA, MDPI, Frontiers, PLOS, Taylor & Francis, Copernicus) with links to their instructions and to Overleaf.
 
 ## Install
 
@@ -41,8 +48,9 @@ paper.
 | `scientific-paper/references/structure.md` | Structure of a paper and the argument check |
 | `scientific-paper/references/literature.md` | Finding, verifying and citing the literature |
 | `scientific-paper/references/style.md` | Style of scientific writing, numbers and units |
-| `scientific-paper/references/latex.md` | Journal templates, LaTeX, Word, figures |
-| `scientific-paper/references/monitoreo.md` | Optional: papers that use results of [MonitorEO](https://github.com/monitoreo-obsnev/monitoreo) |
+| `scientific-paper/references/latex.md` | Working with a template: LaTeX, Word, figures, units |
+| `scientific-paper/references/ecology.md` | Design, statistics, data, ethics and reporting in ecology |
+| `scientific-paper/references/templates.md` | Where to find the template and instructions of each journal and publisher |
 | `scientific-paper/scripts/check_dois.py` | Checks DOIs against Crossref and DataCite (needs only Python 3 and a network) |
 | `scientific-paper/scripts/checklist.md` | Checklist before submitting |
 

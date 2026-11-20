@@ -1,6 +1,6 @@
 """Check DOIs against Crossref and print what each one is, so that it can be compared with what the paper cites.
 
-  python check_dois.py 10.1016/j.rse.2017.06.031 10.5281/zenodo.23814894
+  python check_dois.py 10.1016/j.rse.2017.06.031 10.5281/zenodo.1234567
   python check_dois.py --bib refs.bib          every doi = {...} of a BibTeX file
 
 Exit status 1 if a DOI does not resolve. It only asks Crossref (api.crossref.org) for the public metadata of the DOI,
