@@ -53,10 +53,15 @@ paper.
 | `scientific-paper/references/templates.md` | Where to find the template and instructions of each journal and publisher |
 | `scientific-paper/scripts/check_dois.py` | Checks DOIs against Crossref and DataCite (needs only Python 3 and a network) |
 | `scientific-paper/scripts/checklist.md` | Checklist before submitting |
+| `scientific-paper/scripts/check-refs.yml` | GitHub Actions workflow to run `check_dois.py` in a paper's repository on every change of the `.bib` |
+| `tests/test_check_dois.py` | Offline tests of `check_dois.py` (`python -m unittest discover -s tests`) |
 
 `check_dois.py`: `python scientific-paper/scripts/check_dois.py 10.1016/j.rse.2017.06.031` or `--bib refs.bib`. It
-asks only for the public metadata of the DOI; read the title, authors and year it returns, because a DOI that
-resolves to another paper is as wrong as one that does not resolve.
+asks only for the public metadata of the DOI. It fails on a DOI that does not resolve, on a retracted or withdrawn
+work (from Crossref's `updated-by`, which carries the Retraction Watch records), on a DOI that is a notice instead of
+the work, and, with `--bib`, on an entry whose title or year does not match its DOI. It does not need AI and can run
+in continuous integration (`check-refs.yml`). Still read the title, authors and year it returns: a DOI that resolves
+to another paper with a similar title is as wrong as one that does not resolve.
 
 ## Not
 

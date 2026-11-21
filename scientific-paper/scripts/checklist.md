@@ -10,7 +10,7 @@ Tick only what was done; write what was not.
 - [ ] No `[TODO` left (`grep -rn "TODO" .`)
 
 **References**
-- [ ] Every entry of `refs.bib` verified with `scripts/check_dois.py`; titles, authors and years compared
+- [ ] `python scripts/check_dois.py --bib refs.bib` ends with 0 failed; titles, authors and years also read by eye
 - [ ] Every citation is in the bibliography and the other way round; none retracted
 - [ ] Datasets and software cited with version and DOI; credit lines of the data in the acknowledgements
 

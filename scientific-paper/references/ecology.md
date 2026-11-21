@@ -51,6 +51,11 @@ than hiding it. Do not cite methodological papers from memory: find them (`liter
   region), report skill with several metrics, and say where and when the model should not be trusted.
 - **Time series and trends**: the length of the record, the method and the test (e.g. Mann-Kendall with Sen's slope for
   monotonic trends), autocorrelation, seasonality and breaks; a trend over a short period is not a long-term change.
+  The original Mann-Kendall test assumes independent observations: positive serial autocorrelation, usual in
+  remote-sensing and climate series, inflates the false detection of trends. Say how it was handled, e.g. the
+  variance correction of Hamed & Rao (1998, doi:10.1016/S0022-1694(97)00125-X) or trend-free pre-whitening
+  (Yue et al. 2002, doi:10.1002/hyp.1095), the seasonal Mann-Kendall test for intra-annual data, or a model with an
+  autocorrelation term. Verify these DOIs like any other before citing them.
 - **Missing data and outliers**: how many, how handled, and a sensitivity check when they matter.
 
 ## Reproducibility and data policy (stage 6)

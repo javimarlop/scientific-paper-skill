@@ -17,9 +17,16 @@ For each candidate, before it enters `refs.bib`:
 1. Get the DOI from the publisher or from the paper itself.
 2. Run `python scripts/check_dois.py 10.xxxx/yyyy ...` (or `--bib refs.bib`): Crossref returns the title, authors,
    year and journal. They must match what you cite. A DOI that does not resolve, or resolves to another paper, is an
-   error to fix, not to hide.
+   error to fix, not to hide. With `--bib` the script compares the title and year of each entry with those of its DOI
+   and fails on a mismatch, on a retracted or withdrawn work (Crossref `updated-by`, which includes Retraction Watch)
+   and on a DOI that is a notice instead of the work. It catches gross errors, not a wrong paper with a similar title:
+   still read what it prints.
 3. Read the abstract at least, and the part you cite if you can open it. Write in `LITERATURE.md` the claim it supports.
-   If you only saw the abstract, say so.
+   If you only saw the abstract, say so. If the environment offers a citation-context tool (for example
+   [scite](https://scite.ai), which classifies the citations a paper receives as supporting, contrasting or
+   mentioning, or a search engine over the papers' findings such as [Consensus](https://consensus.app)), use it to
+   check that the paper says what you cite it for and to find the work that contradicts it. Its classification is
+   automatic and can be wrong: it points where to read, it does not replace reading.
 4. A preprint that was later published is cited as the published paper. A retracted paper is not cited (or is cited
    saying that it was retracted).
 
