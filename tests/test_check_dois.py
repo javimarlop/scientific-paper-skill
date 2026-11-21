@@ -151,5 +151,28 @@ class TestBib(unittest.TestCase):
 		self.assertNotIn('title differs', block.split('\n\n')[0])
 
 
+class TestNoNetwork(unittest.TestCase):
+
+	def test_stops_at_first_network_error(self):
+		calls = []
+
+		def offline(url):
+			calls.append(url)
+			raise urllib.error.URLError('Tunnel connection failed: 403')
+
+		out = io.StringIO()
+		argv = ['check_dois.py', '10.1016/S0022-1694(97)00125-X', '10.1002/hyp.1095', '10.9999/x']
+		with mock.patch.object(check_dois, '_get', side_effect=offline), \
+				mock.patch.object(sys, 'argv', argv), redirect_stdout(out):
+			status = check_dois.main()
+		text = out.getvalue()
+		self.assertEqual(status, 2)
+		self.assertEqual(len(calls), 1)  # did not go on with the other DOIs
+		self.assertIn('ERROR', text)
+		self.assertIn('NOT checked', text)
+		self.assertIn('0 of 3 done', text)
+		self.assertNotIn('FAIL', text)
+
+
 if __name__ == '__main__':
 	unittest.main()

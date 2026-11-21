@@ -3,7 +3,8 @@
   python check_dois.py 10.1016/j.rse.2017.06.031 10.5281/zenodo.1234567
   python check_dois.py --bib refs.bib          every entry of a BibTeX file with a doi = {...}
 
-Exit status 1 if a DOI does not resolve, if it points to a retracted or withdrawn work, or (with --bib) if the title
+Exit status 2, and it stops, if Crossref and DataCite cannot be reached (nothing was checked). Exit status 1 if a
+DOI does not resolve, if it points to a retracted or withdrawn work, or (with --bib) if the title
 or the year in the BibTeX entry does not match the one the DOI resolves to.
 
 It only asks Crossref (api.crossref.org) and DataCite (api.datacite.org) for the public metadata of the DOI; nothing
@@ -171,12 +172,20 @@ def main():
 	if not items:
 		parser.error('give DOIs or --bib')
 	bad = 0
-	for key, d, entry_title, entry_year in items:
+	for done, (key, d, entry_title, entry_year) in enumerate(items):
 		doi, info = check(d)
 		label = '%s  ' % key if key else ''
-		if not info or 'error' in info:
+		if info and 'error' in info:
+			# The network, not the DOI: nothing after this can be checked either, so stop instead of
+			# reporting every reference as failed.
+			print('ERROR %s%s  %s' % (label, doi, info['error']))
+			print('\nStopped: Crossref and DataCite cannot be reached, so the references were NOT checked '
+			      '(%d of %d done before the error). Check the connection, a proxy or allowlist, or the SSL '
+			      'certificates of Python, and run it again.' % (done, len(items)))
+			return 2
+		if not info:
 			bad += 1
-			print('FAIL  %s%s  %s' % (label, doi, info['error'] if info else 'does not resolve (Crossref, DataCite)'))
+			print('FAIL  %s%s  does not resolve (Crossref, DataCite)' % (label, doi))
 			continue
 		problems = compare(entry_title, entry_year, info) if key else []
 		if info['retracted']:
